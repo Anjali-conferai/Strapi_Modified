@@ -23,7 +23,6 @@
 | 7 | [Special Cases](07-special-cases.md) | Bhakti Kirtan Retreat and other edge cases |
 | 8 | [Dos and Don'ts](08-dos-and-donts.md) | Permissions, common mistakes, glossary |
 | 9 | [API & Backend](09-api-and-backend.md) | API endpoint, data model, data logic, backend architecture |
-| -- | **Reference Guides** | |
 | 10 | [Architecture](Architecture.md) | System architecture, tech stack, data flow diagrams |
 | 11 | [Troubleshooting](Troubleshooting.md) | Symptom-based issue resolution (16 common problems) |
 | 12 | [Onboarding](Onboarding.md) | Day-by-day first-week walkthrough for new team members |
