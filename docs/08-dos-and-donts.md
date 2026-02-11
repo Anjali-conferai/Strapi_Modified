@@ -1,6 +1,6 @@
 # Dos and Don'ts
 
-[Back to Index](README.md) | Previous: [Special Cases](07-special-cases.md)
+[Back to Index](README.md) | Previous: [Special Cases](07-special-cases.md) | Next: [API & Backend](09-api-and-backend.md)
 
 ---
 
@@ -108,19 +108,22 @@
 | **Content Manager** | The main section in Strapi where you create and edit content |
 | **Content-Type Builder** | Admin tool that modifies the data schema -- DO NOT use |
 | **CST** | Central Standard Time -- the default timezone for events |
-| **EventPlatform** | Which platform the event belongs to (e.g., RKT for Radha Krishna Temple) |
+| **EventAttributes** | The data model returned by the Strapi API for each event -- includes all fields like EventTitle, StartTime, PricingType, etc. |
+| **EventPlatform** | Which platform the event belongs to (e.g., RKT). Must contain `RKT` for the event to appear on the RKT website. The API filters on this field. |
 | **eventUuid** | Unique identifier that connects a Webflow registration form to a Strapi event |
 | **EventURLSlug** | URL-friendly version of the event name (e.g., `akshaya-tritiya`) |
 | **Gallery** | A content component for displaying multiple images in an event |
-| **Headless CMS** | A CMS that stores content and delivers it via APIs (no built-in frontend) |
+| **Headless CMS** | A CMS that stores content and delivers it via APIs (no built-in frontend). Strapi auto-generates REST API endpoints for each Content Type. |
 | **Highlights** | A content component (SelectTab) used to showcase key event features |
-| **isEvent** | A boolean field in App Events -- typically set to `false` |
+| **IsRegistration** | Boolean field that controls whether the registration/link button is active on the frontend |
+| **isEvent** | Boolean field that controls visibility on the Upcoming Events page. `true` = visible, `false` = hidden. See [Data Logic](09-api-and-backend.md#data-logic----critical-fields) |
 | **JKYOG** | JK Yog -- the parent organization |
 | **Live Stream** | A Strapi Collection Type holding sevas (sponsorships) and schedules for an event |
 | **LMS** | Learning Management System -- used for structured educational content |
 | **Media Library** | The file storage section in Strapi for images and documents |
 | **Meilisearch** | A search indexing plugin in Strapi -- admin only |
-| **PricingType** | Field that indicates if an event is `free` or `paid` |
+| **populate** | API query parameter (`populate=*`) that includes all relational data in the response |
+| **PricingType** | String field that determines if an event shows as `free` or `paid` on the frontend. If `paid`, tickets must be configured. See [Data Logic](09-api-and-backend.md#data-logic----critical-fields) |
 | **Production** | The live environment at `https://prod-strapi.jkyog.org/admin` |
 | **Promocode** | A discount code for paid event tickets |
 | **Publish** | Making content live and visible on the website/app |
@@ -130,6 +133,7 @@
 | **Seva** | A sponsorship or service option for an event |
 | **Staging** | The test environment at `https://jkyog-strapi-staging.up.railway.app/admin` |
 | **UUID** | Universally Unique Identifier -- used to link Strapi events to Webflow forms |
+| **REST API** | The interface through which the frontend fetches data from Strapi. Auto-generated from Content Type schemas |
 | **Webflow** | The website builder platform where jkyog.org is hosted |
 
 ---

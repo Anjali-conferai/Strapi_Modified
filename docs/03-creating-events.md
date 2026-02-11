@@ -112,14 +112,23 @@ After publishing, you also need to:
 | **TimeZone** | `CST` | |
 | **ContactEmail** | `info@radhakrishnatemple.com` | |
 | **ContactPhoneNumber** | `(469) 795-9130` | |
-| **PricingType** | `free` | |
-| **isEvent** | `false` | |
+| **PricingType** | `free` | `free` or `paid` -- controls pricing badge on the website |
+| **isEvent** | `true` | `true` = shows on Upcoming Events page; `false` = hidden |
+| **IsRegistration** | `true` | `true` = registration button active on the website |
 | **EventType** | `General` | |
-| **EventPlatform** | `RKT` | |
+| **EventPlatform** | `RKT` | Must contain `RKT` for the event to appear on the RKT website |
 
 ![UUID and other fields -- Copy the UUID!](images/docx_image21.png)
 
 > **Critical:** The **uuid** is needed later for Webflow registration. Always copy it when creating or duplicating an event.
+
+> **Data Logic -- Read This:**
+> - **isEvent** controls whether the event appears on the Upcoming Events page. Set to `true` for public events.
+> - **PricingType** controls the Free/Paid badge. If set to `paid`, you **must** also create tickets in [Payment Tickets](05-payment-tickets.md) or the price will show as $0.
+> - **EventPlatform** must contain `RKT` for the event to show on the RKT website.
+> - **IsRegistration** controls the registration button. Set to `true` to allow sign-ups.
+>
+> For the full explanation, see [API & Backend -- Data Logic](09-api-and-backend.md#data-logic----critical-fields).
 
 ---
 
