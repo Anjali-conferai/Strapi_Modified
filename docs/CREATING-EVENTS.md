@@ -1,6 +1,6 @@
 # Creating Events
 
-[Back to Index](README.md) | Previous: [Strapi Overview](02-strapi-overview.md) | Next: [Webflow Integration](04-webflow-integration.md)
+[Back to Index](README.md) | Previous: [Strapi Overview](STRAPI-OVERVIEW.md) | Next: [Webflow Integration](WEBFLOW-INTEGRATION.md)
 
 ---
 
@@ -9,56 +9,54 @@
 Creating a new event is the most common task in Strapi. The full flow involves multiple steps across different sections. Here is the end-to-end process:
 
 ```
-                    START
-                      |
-                      v
-        +---------------------------+
-        |  1. Upload Banner Image   |
-        |     (Media Library)       |
-        +---------------------------+
-                      |
-                      v
-        +---------------------------+
-        |  2. Create App Event      |
-        |     (Content Manager)     |
-        +---------------------------+
-                      |
-              +-------+-------+
-              |               |
-              v               v
-    +-----------------+  +-----------------+
-    | 3. Add Content  |  | 4. Create Email |
-    |  - Highlights   |  |    Template     |
-    |  - Gallery      |  +-----------------+
-    +-----------------+           |
-              |                   |
-              v                   v
-        +---------------------------+
-        |  5. Create Live Stream    |
-        |     (Sevas + Schedule)    |
-        +---------------------------+
-                      |
-                      v
-        +---------------------------+
-        |  6. Link Everything       |
-        |  Event <-> LiveStream     |
-        |  Event <-> Email Template |
-        +---------------------------+
-                      |
-                      v
-        +---------------------------+
-        |  7. Save & Publish        |
-        +---------------------------+
-                      |
-                      v
-              Continue to:
-         Webflow Integration
-          Payment Tickets
+                         START
+                           |
+                           v
+             +---------------------------+
+             |  1. Upload Banner Image   |
+             |     (Media Library)       |
+             +---------------------------+
+                           |
+                           v
+             +---------------------------+
+             |  2. Create App Event      |
+             |     (Content Manager)     |
+             +---------------------------+
+                           |
+            +--------------+--------------+
+            |              |              |
+            v              v              v
+  +-----------------+ +-----------+ +------------------+
+  | 3. Add Content  | | 4. Create | | 5. Create Live   |
+  |  - Highlights   | |    Email  | |    Stream        |
+  |  - Gallery      | |  Template | |  (Sevas +        |
+  +-----------------+ +-----------+ |   Schedule)      |
+            |              |        +------------------+
+            +--------------+--------------+
+                           |
+                           v
+             +---------------------------+
+             |  6. Link Everything       |
+             |  Event <-> LiveStream     |
+             |  Event <-> Email Template |
+             +---------------------------+
+                           |
+                           v
+             +---------------------------+
+             |  7. Save & Publish        |
+             +---------------------------+
+                           |
+                           v
+                   Continue to:
+              Webflow Integration
+               Payment Tickets
 ```
 
+> **Steps 3, 4, and 5 can be done in any order or in parallel.** They are independent tasks that only need to be completed before Step 6 (Link Everything).
+
 After publishing, you also need to:
-- Set up the registration form in Webflow -- see [Webflow Integration](04-webflow-integration.md)
-- Create tickets if the event is paid -- see [Payment Tickets](05-payment-tickets.md)
+- Set up the registration form in Webflow -- see [Webflow Integration](WEBFLOW-INTEGRATION.md)
+- Create tickets if the event is paid -- see [Payment Tickets](PAYMENT-TICKETS.md)
 
 ---
 
@@ -108,27 +106,28 @@ After publishing, you also need to:
 | **uuid** | `d0af1ffd-c5b2-4f74-9a94-1b0d9d5dc781` | Auto-generated. **COPY THIS** for Webflow |
 | **Language** | `en` | |
 | **StartTime** | Date + Time | |
-| **EventLocation** | `In-person` | |
-| **TimeZone** | `CST` | |
+| **EventLocation** | `In-person` | Dropdown: `Online`, `In-person`, `Both` |
+| **TimeZone** | `CST` | Dropdown: `EST`, `CST`, `MST`, `IST`, `BST`, `PST` |
 | **ContactEmail** | `info@radhakrishnatemple.com` | |
 | **ContactPhoneNumber** | `(469) 795-9130` | |
-| **PricingType** | `free` | `free` or `paid` -- controls pricing badge on the website |
-| **isEvent** | `true` | `true` = shows on Upcoming Events page; `false` = hidden |
-| **IsRegistration** | `true` | `true` = registration button active on the website |
-| **EventType** | `General` | |
-| **EventPlatform** | `RKT` | Must contain `RKT` for the event to appear on the RKT website |
+| **PricingType** | `free` | Dropdown: `free` or `paid` -- controls pricing badge on the website |
+| **isEvent** | `true` | Boolean (default: `true`). `true` = shows on Upcoming Events page; `false` = hidden |
+| **IsRegistration** | `true` | Boolean (default: `true`). `true` = registration button active on the website |
+| **EventType** | `General` | Multi-select dropdown. Values: `Retreat`, `Featured`, `MeetSwamiji`, `LifeTransformation`, `LifeTransformation2`, `LifeTransformation3`, `General`, `Yuth`, `SATSANG` |
+| **EventPlatform** | `RKT` | Multi-select dropdown. Values: `JKYog`, `RKT`, `Krishna Bhagavad Gita`. Must include `RKT` for the event to appear on the RKT website |
 
 ![UUID and other fields -- Copy the UUID!](images/docx_image21.png)
 
 > **Critical:** The **uuid** is needed later for Webflow registration. Always copy it when creating or duplicating an event.
 
 > **Data Logic -- Read This:**
-> - **isEvent** controls whether the event appears on the Upcoming Events page. Set to `true` for public events.
-> - **PricingType** controls the Free/Paid badge. If set to `paid`, you **must** also create tickets in [Payment Tickets](05-payment-tickets.md) or the price will show as $0.
-> - **EventPlatform** must contain `RKT` for the event to show on the RKT website.
-> - **IsRegistration** controls the registration button. Set to `true` to allow sign-ups.
+> - **isEvent** defaults to `true`. Controls whether the event appears on the Upcoming Events page. Only set to `false` if you want the event hidden from public listing.
+> - **PricingType** controls the Free/Paid badge. If set to `paid`, you **must** also create tickets in [Payment Tickets](PAYMENT-TICKETS.md) or the price will show as $0.
+> - **EventPlatform** is a **multi-select** dropdown. Select `RKT` for RKT website, `JKYog` for JKYog website, or both. If `RKT` is not selected, the event will NOT appear on the RKT website.
+> - **EventType** is a **multi-select** dropdown. Select all applicable types (e.g., `Retreat` + `Featured` for a featured retreat).
+> - **IsRegistration** defaults to `true`. Controls the registration button. Set to `false` to disable sign-ups.
 >
-> For the full explanation, see [API & Backend -- Data Logic](09-api-and-backend.md#data-logic----critical-fields).
+> For the full explanation, see [API & Backend -- Data Logic](API-AND-BACKEND.md#data-logic----critical-fields).
 
 ---
 
@@ -252,8 +251,8 @@ Back in the **App Event** entry:
 
 Your event is now live in Strapi. To complete the setup:
 
-- **Set up the registration form on the website** -- see [Webflow Integration](04-webflow-integration.md)
-- **Create payment tickets** (if the event is paid) -- see [Payment Tickets](05-payment-tickets.md)
+- **Set up the registration form on the website** -- see [Webflow Integration](WEBFLOW-INTEGRATION.md)
+- **Create payment tickets** (if the event is paid) -- see [Payment Tickets](PAYMENT-TICKETS.md)
 
 ---
 
@@ -272,3 +271,9 @@ Your event is now live in Strapi. To complete the setup:
 - [ ] Link Live Stream to the event (LinkedStreams field)
 - [ ] Link Email Template to the event
 - [ ] Save, then Publish
+
+---
+
+## Complete Field Reference
+
+> For the full 58-field App Event schema (all fields, types, defaults, components, relations), see [Content Model -- Schema Deep Dive: App Event](MODEL.md#schema-deep-dive-app-event-58-fields).

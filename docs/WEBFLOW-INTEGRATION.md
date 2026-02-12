@@ -1,6 +1,6 @@
 # Webflow Integration
 
-[Back to Index](README.md) | Previous: [Creating Events](03-creating-events.md) | Next: [Payment Tickets](05-payment-tickets.md)
+[Back to Index](README.md) | Previous: [Creating Events](CREATING-EVENTS.md) | Next: [Payment Tickets](PAYMENT-TICKETS.md)
 
 ---
 
@@ -8,7 +8,7 @@
 
 After creating and publishing an event in Strapi, you need to set up the **registration form** on the JKYOG website (built in Webflow). This connects the website to the Strapi event via the **eventUuid**.
 
-**Prerequisites:** You must have already created the App Event in Strapi and copied the **UUID**. If you haven't, go to [Creating Events](03-creating-events.md) first.
+**Prerequisites:** You must have already created the App Event in Strapi and copied the **UUID**. If you haven't, go to [Creating Events](CREATING-EVENTS.md) first.
 
 ---
 
@@ -89,5 +89,5 @@ This is the critical step that connects the form to your Strapi event.
 
 ## Next Steps
 
-- If the event is paid, set up tickets: [Payment Tickets](05-payment-tickets.md)
-- Review the rules: [Dos and Don'ts](08-dos-and-donts.md)
+- If the event is paid, set up tickets: [Payment Tickets](PAYMENT-TICKETS.md)
+- Review the rules: [Business Rules](BUSINESS.md)

@@ -1,6 +1,6 @@
 # Strapi Overview
 
-[Back to Index](README.md) | Previous: [Getting Started](01-getting-started.md) | Next: [Creating Events](03-creating-events.md)
+[Back to Index](README.md) | Previous: [Getting Started](GETTING-STARTED.md) | Next: [Creating Events](CREATING-EVENTS.md)
 
 ---
 
@@ -44,7 +44,6 @@ This is where you spend 90% of your time. It contains **39 Collection Types** --
 | **App Events** | Temple events (satsangs, retreats, festivals) | Frequently |
 | **Event Email Templates** | Registration confirmation emails | Per event |
 | **Live Streams** | Seva/sponsorship options + schedules | Per event |
-| **App LMS Lessons** | Learning module content | Occasionally |
 | **App Articles** | Blog/article content | Occasionally |
 | **App Audios** | Audio content for the app | Occasionally |
 | **App Books** | Book listings | Rarely |
@@ -73,7 +72,7 @@ Key folder: **Event Banner Image (1024 x 768)** -- this is where all event banne
 
 ## Tickets and Promocodes
 
-Found under **Plugins** in the sidebar. This is where you create payment tickets for paid events. See [Payment Tickets](05-payment-tickets.md) for the full workflow.
+Found under **Plugins** in the sidebar. This is where you create payment tickets for paid events. See [Payment Tickets](PAYMENT-TICKETS.md) for the full workflow.
 
 ---
 
@@ -89,5 +88,5 @@ The following are admin-only sections. Do not modify them:
 
 ## Next Steps
 
-- [Creating Events](03-creating-events.md) -- the main workflow you will use most
-- [Dos and Don'ts](08-dos-and-donts.md) -- full list of what you can and cannot do
+- [Creating Events](CREATING-EVENTS.md) -- the main workflow you will use most
+- [Business Rules](BUSINESS.md) -- full list of what you can and cannot do

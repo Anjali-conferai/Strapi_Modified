@@ -1,6 +1,6 @@
 # Payment Tickets
 
-[Back to Index](README.md) | Previous: [Webflow Integration](04-webflow-integration.md) | Next: [Editing LMS Lessons](06-editing-lms-lessons.md)
+[Back to Index](README.md) | Previous: [Webflow Integration](WEBFLOW-INTEGRATION.md) | Next: [Special Cases](SPECIAL-CASES.md)
 
 ---
 
@@ -82,5 +82,5 @@ After creating the ticket, verify on the live registration page that:
 
 ## Next Steps
 
-- [Editing LMS Lessons](06-editing-lms-lessons.md) -- if you also manage learning content
-- [Dos and Don'ts](08-dos-and-donts.md) -- review common mistakes
+- [Special Cases](SPECIAL-CASES.md) -- non-standard workflows
+- [Business Rules](BUSINESS.md) -- permissions and safe zones

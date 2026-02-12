@@ -6,7 +6,7 @@
 
 ## Quick Start
 
-**First day?** Start with the [Onboarding Guide](Onboarding.md) -- it walks you through your entire first week, day by day.
+**First day?** Start with the [Onboarding Guide](ONBOARDING.md) -- it walks you through your entire first week, day by day.
 
 ---
 
@@ -14,18 +14,21 @@
 
 | # | Document | What It Covers |
 |---|----------|---------------|
-| 1 | [Getting Started](01-getting-started.md) | What is Strapi, environments, login |
-| 2 | [Strapi Overview](02-strapi-overview.md) | Dashboard, sidebar, Collection Types, permissions |
-| 3 | [Creating Events](03-creating-events.md) | Full event creation flow (the main workflow) |
-| 4 | [Webflow Integration](04-webflow-integration.md) | Registration form setup, eventUuid |
-| 5 | [Payment Tickets](05-payment-tickets.md) | Tickets and Promocodes for paid events |
-| 6 | [Editing LMS Lessons](06-editing-lms-lessons.md) | App LMS lesson content |
-| 7 | [Special Cases](07-special-cases.md) | Bhakti Kirtan Retreat and other edge cases |
-| 8 | [Dos and Don'ts](08-dos-and-donts.md) | Permissions, common mistakes, glossary |
-| 9 | [API & Backend](09-api-and-backend.md) | API endpoint, data model, data logic, backend architecture |
-| 10 | [Architecture](Architecture.md) | System architecture, tech stack, data flow diagrams |
-| 11 | [Troubleshooting](Troubleshooting.md) | Symptom-based issue resolution (16 common problems) |
-| 12 | [Onboarding](Onboarding.md) | Day-by-day first-week walkthrough for new team members |
+| 1 | [Getting Started](GETTING-STARTED.md) | What is Strapi, environments, login |
+| 2 | [Strapi Overview](STRAPI-OVERVIEW.md) | Dashboard, sidebar, Collection Types |
+| 3 | [Creating Events](CREATING-EVENTS.md) | Full event creation flow (the main workflow) |
+| 4 | [Webflow Integration](WEBFLOW-INTEGRATION.md) | Registration form setup, eventUuid |
+| 5 | [Payment Tickets](PAYMENT-TICKETS.md) | Tickets and Promocodes for paid events |
+| 6 | [Special Cases](SPECIAL-CASES.md) | Bhakti Kirtan Retreat and other edge cases |
+| 7 | [API & Backend](API-AND-BACKEND.md) | API endpoint, data logic, backend architecture |
+| -- | **Reference Guides** | |
+| 8 | [Data & API Reference](DATA.md) | All API endpoints, query patterns, caching, webhooks, media |
+| 9 | [Content Model](MODEL.md) | Content types, fields, components, enums, glossary |
+| 10 | [Business Rules](BUSINESS.md) | Content domains, user roles, permissions, safe zones |
+| 11 | [Environment Variables](ENVIRONMENT-VARIABLES.md) | All environment and config variables |
+| 12 | [Architecture](ARCHITECTURE.md) | System architecture, tech stack, data flow diagrams |
+| 13 | [Troubleshooting](TROUBLESHOOTING.md) | Symptom-based issue resolution (19 common problems) |
+| 14 | [Onboarding](ONBOARDING.md) | Day-by-day first-week walkthrough for new team members |
 
 ---
 
@@ -33,20 +36,22 @@
 
 | I want to... | Go to |
 |-------------|-------|
-| Log in for the first time | [Getting Started](01-getting-started.md) |
-| Understand the Strapi sidebar and menus | [Strapi Overview](02-strapi-overview.md) |
-| Create a new event (satsang, retreat, festival) | [Creating Events](03-creating-events.md) |
-| Set up the registration form on the website | [Webflow Integration](04-webflow-integration.md) |
-| Add payment/ticket pricing to an event | [Payment Tickets](05-payment-tickets.md) |
-| Edit a learning module or lesson | [Editing LMS Lessons](06-editing-lms-lessons.md) |
-| Work on the Bhakti Kirtan Retreat page | [Special Cases](07-special-cases.md) |
-| Check what I can and cannot do | [Dos and Don'ts](08-dos-and-donts.md) |
-| Look up a term I don't understand | [Glossary](08-dos-and-donts.md#glossary) |
-| Understand how the API and backend work | [API & Backend](09-api-and-backend.md) |
-| Know what `isEvent` or `PricingType` actually do | [API & Backend -- Data Logic](09-api-and-backend.md#data-logic----critical-fields) |
-| Understand the full system architecture | [Architecture](Architecture.md) |
-| Fix something that's broken | [Troubleshooting](Troubleshooting.md) |
-| Onboard as a new team member (day-by-day plan) | [Onboarding](Onboarding.md) |
+| Log in for the first time | [Getting Started](GETTING-STARTED.md) |
+| Understand the Strapi sidebar and menus | [Strapi Overview](STRAPI-OVERVIEW.md) |
+| Create a new event (satsang, retreat, festival) | [Creating Events](CREATING-EVENTS.md) |
+| Set up the registration form on the website | [Webflow Integration](WEBFLOW-INTEGRATION.md) |
+| Add payment/ticket pricing to an event | [Payment Tickets](PAYMENT-TICKETS.md) |
+| Work on the Bhakti Kirtan Retreat page | [Special Cases](SPECIAL-CASES.md) |
+| Check what I can and cannot do | [Business Rules -- Permissions](BUSINESS.md#permissions--safe-zones) |
+| Look up a term I don't understand | [Glossary](MODEL.md#glossary) |
+| Find an API endpoint or query pattern | [Data & API Reference](DATA.md) |
+| See all fields for a content type | [Content Model](MODEL.md) |
+| Understand how the API and backend work | [API & Backend](API-AND-BACKEND.md) |
+| Know what `isEvent` or `PricingType` actually do | [API & Backend -- Data Logic](API-AND-BACKEND.md#data-logic----critical-fields) |
+| Understand the full system architecture | [Architecture](ARCHITECTURE.md) |
+| Check environment variables or URLs | [Environment Variables](ENVIRONMENT-VARIABLES.md) |
+| Fix something that's broken | [Troubleshooting](TROUBLESHOOTING.md) |
+| Onboard as a new team member (day-by-day plan) | [Onboarding](ONBOARDING.md) |
 
 ---
 

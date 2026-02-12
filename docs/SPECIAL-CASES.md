@@ -1,6 +1,6 @@
 # Special Cases
 
-[Back to Index](README.md) | Previous: [Editing LMS Lessons](06-editing-lms-lessons.md) | Next: [Dos and Don'ts](08-dos-and-donts.md)
+[Back to Index](README.md) | Previous: [Payment Tickets](PAYMENT-TICKETS.md) | Next: [API & Backend](API-AND-BACKEND.md)
 
 ---
 
@@ -42,7 +42,7 @@ The registration uses the jkyog.org event registration system with the event slu
 ### Key Points
 
 - You still need to create the App Event and Live Stream in Strapi.
-- Payment tickets must be set up in Tickets and Promocodes (see [Payment Tickets](05-payment-tickets.md)).
+- Payment tickets must be set up in Tickets and Promocodes (see [Payment Tickets](PAYMENT-TICKETS.md)).
 - The Webflow page uses **direct URL links** instead of embedded registration forms.
 - The Watch Live URL should point to the page that embeds the Live Stream from Strapi.
 
@@ -61,4 +61,4 @@ If you encounter another event type that doesn't follow the standard flow, docum
 
 ## Next Steps
 
-- [Dos and Don'ts](08-dos-and-donts.md) -- rules, common mistakes, and glossary
+- [Business Rules](BUSINESS.md) -- permissions, safe zones, content domains

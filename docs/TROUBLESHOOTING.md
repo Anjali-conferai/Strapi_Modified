@@ -23,11 +23,13 @@ Find your symptom in the table below and jump to the detailed fix. If your issue
 | 9 | Changes lost after switching tabs in Strapi | [T-09](#t-09-changes-lost-after-switching-tabs) |
 | 10 | Sevas not showing on the event page | [T-10](#t-10-sevas-not-showing-on-event-page) |
 | 11 | Schedule not showing on the event page | [T-11](#t-11-schedule-not-showing-on-event-page) |
-| 12 | LMS lesson changes not appearing in the app | [T-12](#t-12-lms-lesson-changes-not-appearing-in-app) |
 | 13 | "Please fill all required fields" error on registration | [T-13](#t-13-please-fill-all-required-fields-error) |
 | 14 | Registration button is missing or disabled | [T-14](#t-14-registration-button-missing-or-disabled) |
 | 15 | Duplicate event has stale/wrong data | [T-15](#t-15-duplicate-event-has-stale-or-wrong-data) |
 | 16 | HelpDesk section looks broken | [T-16](#t-16-helpdesk-section-looks-broken) |
+| 17 | Newly created event not appearing on website | [T-17](#t-17-newly-created-event-not-appearing-on-website) |
+| 18 | Content not loading on website / API returns 403 | [T-18](#t-18-content-not-loading-on-website--api-returns-403) |
+| 19 | Errors on live site after untested changes | [T-19](#t-19-errors-on-live-site-after-untested-changes) |
 
 ---
 
@@ -59,7 +61,7 @@ Find your symptom in the table below and jump to the detailed fix. If your issue
 
 5. Save and Publish in Webflow.
 
-**Reference:** [Webflow Integration](04-webflow-integration.md)
+**Reference:** [Webflow Integration](WEBFLOW-INTEGRATION.md)
 
 ---
 
@@ -76,7 +78,7 @@ Find your symptom in the table below and jump to the detailed fix. If your issue
 
 **Prevention:** Every time you duplicate a registration component, immediately update the `eventUuid`.
 
-**Reference:** [Webflow Integration](04-webflow-integration.md)
+**Reference:** [Webflow Integration](WEBFLOW-INTEGRATION.md)
 
 ---
 
@@ -96,7 +98,7 @@ Find your symptom in the table below and jump to the detailed fix. If your issue
 
 **Also check:** Is `PricingType` set to `paid` in the App Event? If it's set to `free`, the frontend won't trigger the payment flow regardless of tickets.
 
-**Reference:** [Payment Tickets](05-payment-tickets.md)
+**Reference:** [Payment Tickets](PAYMENT-TICKETS.md)
 
 ---
 
@@ -114,7 +116,7 @@ Find your symptom in the table below and jump to the detailed fix. If your issue
 | 4. Published? | Is the entry actually published (green) or still draft? | Click **Publish** |
 | 5. `EventPlatform` | Does it contain `RKT`? | Set EventPlatform to `RKT` |
 
-**Reference:** [API & Backend -- Data Logic](09-api-and-backend.md#data-logic----critical-fields)
+**Reference:** [API & Backend -- Data Logic](API-AND-BACKEND.md#data-logic----critical-fields)
 
 ---
 
@@ -129,7 +131,7 @@ Find your symptom in the table below and jump to the detailed fix. If your issue
 2. Set **EventPlatform** to include `RKT`.
 3. Save, then Publish.
 
-**Reference:** [API & Backend](09-api-and-backend.md#the-events-api-endpoint)
+**Reference:** [API & Backend](API-AND-BACKEND.md#the-events-api-endpoint)
 
 ---
 
@@ -205,7 +207,7 @@ Find your symptom in the table below and jump to the detailed fix. If your issue
 | Live Stream linked? | In the App Event, set **LinkedStreams** to your Live Stream |
 | Live Stream published? | Publish the Live Stream entry |
 
-**Reference:** [Creating Events -- Step 5](03-creating-events.md#step-5-create-live-stream-sevas--schedule)
+**Reference:** [Creating Events -- Step 5](CREATING-EVENTS.md#step-5-create-live-stream-sevas--schedule)
 
 ---
 
@@ -221,22 +223,6 @@ Find your symptom in the table below and jump to the detailed fix. If your issue
 
 ---
 
-### T-12: LMS Lesson Changes Not Appearing in App
-
-**Symptoms:** You edited an App LMS Lesson but the changes don't show in the mobile app.
-
-**Root Causes:**
-
-| Check | Fix |
-|-------|-----|
-| Published? | Did you click both **Save** and **Publish**? |
-| Correct entry? | Verify you edited the right lesson (check Title) |
-| App cache? | The app may cache content. Force-close and reopen the app. |
-
-**Reference:** [Editing LMS Lessons](06-editing-lms-lessons.md)
-
----
-
 ### T-13: "Please Fill All Required Fields" Error
 
 **Symptoms:** User sees this error when submitting the registration form, even though they filled everything in.
@@ -245,7 +231,7 @@ Find your symptom in the table below and jump to the detailed fix. If your issue
 
 **Fix:** Verify all 7 required field IDs are present and spelled exactly right: `firstName`, `lastName`, `email`, `city`, `countryCode`, `phone`, `joinwhatsapp`.
 
-**Reference:** [Webflow Integration](04-webflow-integration.md#step-3-verify-input-field-ids)
+**Reference:** [Webflow Integration](WEBFLOW-INTEGRATION.md#step-3-verify-input-field-ids)
 
 ---
 
@@ -260,7 +246,7 @@ Find your symptom in the table below and jump to the detailed fix. If your issue
 2. Set **IsRegistration** to `true`.
 3. Save, then Publish.
 
-**Reference:** [API & Backend -- Data Model](09-api-and-backend.md#data-model----eventattributes)
+**Reference:** [API & Backend -- Data Model](API-AND-BACKEND.md#data-model----eventattributes)
 
 ---
 
@@ -301,6 +287,67 @@ Find your symptom in the table below and jump to the detailed fix. If your issue
 
 ---
 
+### T-17: Newly Created Event Not Appearing on Website
+
+**Symptoms:** You just created and published a brand new event, but it does not show up on the website. The event exists in Strapi and is published with `isEvent = true` and `EventPlatform` includes `RKT`.
+
+**Root Cause:** The REST API uses **Redis caching** with a **1-hour TTL**. Cache invalidation is triggered on **update** and **delete**, but **NOT on create**. When you create a brand new entry, no existing cache entry is invalidated, so the old (stale) cached response (without the new event) continues to be served for up to 1 hour.
+
+**Fix:**
+1. **Wait up to 1 hour** for the cache to expire naturally, OR
+2. **Edit and re-save the entry:** Open the newly created event, make any trivial edit (e.g., add a space to a description), then Save and Publish. This triggers an **update** event, which invalidates the cache.
+
+**Prevention:** After creating any new event, always do a quick re-save (edit + publish) to force cache invalidation.
+
+**Reference:** [API & Backend -- Caching](API-AND-BACKEND.md#api-caching--real-time-sync) | [Data & API Reference -- Caching](DATA.md#api-caching-redis)
+
+---
+
+### T-18: Content Not Loading on Website / API Returns 403
+
+**Symptoms:** A content type (events, articles, announcements, etc.) that was previously working suddenly stops loading on the website or app. The browser console may show `403 Forbidden` errors for API requests. Alternatively, a newly created Collection Type's data is not accessible via the API.
+
+**Root Cause:** The **Public role permissions** for that content type have been disabled or were never enabled. The Public role (`Settings > Users and Permissions Plugin > Roles > Public`) controls which content types are accessible via the unauthenticated REST API. If `find` and `findOne` are not checked, the API returns 403.
+
+**Fix:**
+1. Go to **Settings** in the Strapi sidebar.
+2. Under **Users and Permissions Plugin**, click **Roles**.
+3. Click on the **Public** role.
+4. Find the affected content type (e.g., `Appevent`, `Apparticle`).
+5. Click the dropdown arrow to expand it.
+6. Ensure **`find`** and **`findOne`** are checked.
+7. **Do NOT** check `create`, `update`, or `delete` -- these must stay disabled for the Public role.
+8. Click **Save** at the top right.
+
+![Public Role Permissions settings](images/WhatsApp%20Image%202026-02-12%20at%2022.21.28.jpeg)
+
+**Common scenarios where this happens:**
+- A **new Collection Type** was created by a developer but Public permissions were not configured
+- Someone modified **Settings** or ran a **config sync** that reset permissions
+- Permissions were accidentally changed while editing another role
+
+**Prevention:** After any schema change or config sync, verify Public role permissions for all content types that the frontend consumes.
+
+**Reference:** [Data & API Reference -- Public Role Permissions](DATA.md#public-role-permissions) | [Architecture -- API Access Control](ARCHITECTURE.md#api-access-control-public-role)
+
+---
+
+### T-19: Errors on Live Site After Untested Changes
+
+**Symptoms:** You made changes directly on Production, and now the live website or app is showing errors, broken layouts, or incorrect content.
+
+**Root Cause:** Changes were applied to Production without first testing on the Staging environment.
+
+**Fix:**
+1. Identify what was changed and revert if possible (edit the entry back to its previous state).
+2. If you cannot revert, contact your team lead immediately with screenshots.
+
+**Prevention:** **Always test on Staging first.** The Staging environment (`https://jkyog-strapi-staging.up.railway.app/admin`) is a separate instance with its own database. Make your changes there, verify they look correct, then repeat the same changes on Production.
+
+**Reference:** [Business Rules -- Permissions & Safe Zones](BUSINESS.md#permissions--safe-zones)
+
+---
+
 ## Escalation
 
 If your issue is not listed above or the fix doesn't work:
@@ -315,13 +362,13 @@ If your issue is not listed above or the fix doesn't work:
    - The event name or entry ID
    - Screenshots
 
-> **Do NOT** try to fix issues by modifying Content-Type Builder, Settings, Plugins, or API tokens. These are admin-only areas and changes can break the entire system. See [Dos and Don'ts](08-dos-and-donts.md).
+> **Do NOT** try to fix issues by modifying Content-Type Builder, Settings, Plugins, or API tokens. These are admin-only areas and changes can break the entire system. See [Business Rules -- Permissions & Safe Zones](BUSINESS.md#permissions--safe-zones).
 
 ---
 
 ## Related Docs
 
-- [Dos and Don'ts](08-dos-and-donts.md) -- common mistakes and how to prevent them
-- [API & Backend](09-api-and-backend.md) -- understand what each field controls
-- [Creating Events](03-creating-events.md) -- the correct step-by-step flow
-- [Architecture](Architecture.md) -- how all the systems connect
+- [Business Rules](BUSINESS.md) -- permissions, safe zones, and content domains
+- [API & Backend](API-AND-BACKEND.md) -- understand what each field controls
+- [Creating Events](CREATING-EVENTS.md) -- the correct step-by-step flow
+- [Architecture](ARCHITECTURE.md) -- how all the systems connect

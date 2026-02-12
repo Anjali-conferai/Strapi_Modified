@@ -1,6 +1,6 @@
 # Getting Started
 
-[Back to Index](README.md) | Next: [Strapi Overview](02-strapi-overview.md)
+[Back to Index](README.md) | Next: [Strapi Overview](STRAPI-OVERVIEW.md)
 
 ---
 
@@ -11,7 +11,6 @@ Strapi is the **headless CMS** (Content Management System) used by JKYOG (JK Yog
 - The **JKYOG website** (built on Webflow)
 - The **RKT mobile app**
 - **Event registration pages**
-- **LMS (Learning Management System) lessons**
 
 Content created in Strapi gets consumed by the website and app via APIs. You do NOT code anything in Strapi -- you manage content through its admin panel.
 
@@ -54,11 +53,11 @@ The left sidebar is your main navigation. It contains:
 - **Plugins** -- Media Library, Tickets, Import/Export, etc.
 - **General** -- system settings (admin only)
 
-For a detailed breakdown of every sidebar item and what it does, continue to [Strapi Overview](02-strapi-overview.md).
+For a detailed breakdown of every sidebar item and what it does, continue to [Strapi Overview](STRAPI-OVERVIEW.md).
 
 ---
 
 ## Next Steps
 
-- [Strapi Overview](02-strapi-overview.md) -- understand the dashboard and Collection Types
-- [Creating Events](03-creating-events.md) -- jump straight into the main workflow
+- [Strapi Overview](STRAPI-OVERVIEW.md) -- understand the dashboard and Collection Types
+- [Creating Events](CREATING-EVENTS.md) -- jump straight into the main workflow

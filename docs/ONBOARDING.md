@@ -36,7 +36,7 @@ Start with the **Staging** environment so you can explore safely:
 
 ![Login Screen](images/strapi_login2_image1.jpeg)
 
-**Detailed guide:** [Getting Started](01-getting-started.md)
+**Detailed guide:** [Getting Started](GETTING-STARTED.md)
 
 #### Step 2: Explore the Sidebar
 
@@ -52,7 +52,7 @@ After logging in, spend 10 minutes clicking through the sidebar:
 
 > **Do NOT click** Content-Type Builder, Settings, Plugins, or Marketplace. These are admin-only.
 
-**Detailed guide:** [Strapi Overview](02-strapi-overview.md)
+**Detailed guide:** [Strapi Overview](STRAPI-OVERVIEW.md)
 
 #### Step 3: Browse Existing Content
 
@@ -81,8 +81,8 @@ This is what you'll be creating soon.
 
 #### Read These Two Documents
 
-1. **[Architecture](Architecture.md)** -- the big picture of how Strapi, Webflow, the mobile app, and Brevo all connect
-2. **[API & Backend](09-api-and-backend.md)** -- how the API works and which fields control what
+1. **[Architecture](ARCHITECTURE.md)** -- the big picture of how Strapi, Webflow, the mobile app, and Brevo all connect
+2. **[API & Backend](API-AND-BACKEND.md)** -- how the API works and which fields control what
 
 #### Key Concepts to Understand
 
@@ -109,7 +109,7 @@ This is what you'll be creating soon.
 
 **Time estimate:** 45-60 minutes
 
-Follow the [Creating Events](03-creating-events.md) guide step by step, using **Staging**. Here's the high-level flow:
+Follow the [Creating Events](CREATING-EVENTS.md) guide step by step, using **Staging**. Here's the high-level flow:
 
 ```
 Upload Banner ──> Create App Event ──> Add Content ──> Create Email Template
@@ -146,7 +146,7 @@ Upload Banner ──> Create App Event ──> Add Content ──> Create Email 
 
 ## Day 4: Learn the Supporting Workflows
 
-### Goal: Understand tickets, Webflow integration, and LMS lessons
+### Goal: Understand tickets and Webflow integration
 
 **Time estimate:** 30 minutes
 
@@ -154,15 +154,13 @@ Upload Banner ──> Create App Event ──> Add Content ──> Create Email 
 
 | Task | Guide | Practice On Staging |
 |------|-------|-------------------|
-| Set up payment tickets | [Payment Tickets](05-payment-tickets.md) | Create a test ticket for your Day 3 event |
-| Webflow registration form | [Webflow Integration](04-webflow-integration.md) | Read the guide -- you'll practice this with your lead |
-| Edit an LMS lesson | [Editing LMS Lessons](06-editing-lms-lessons.md) | Edit a test lesson title on Staging |
+| Set up payment tickets | [Payment Tickets](PAYMENT-TICKETS.md) | Create a test ticket for your Day 3 event |
+| Webflow registration form | [Webflow Integration](WEBFLOW-INTEGRATION.md) | Read the guide -- you'll practice this with your lead |
 
 #### Day 4 Checkpoint
 
 - [ ] I know where Tickets and Promocodes is and how to add a ticket
 - [ ] I understand the eventUuid flow (even if I haven't done it in Webflow yet)
-- [ ] I've edited an LMS lesson on Staging (Save + Publish)
 
 ---
 
@@ -174,9 +172,9 @@ Upload Banner ──> Create App Event ──> Add Content ──> Create Email 
 
 #### Read These Documents
 
-1. **[Dos and Don'ts](08-dos-and-donts.md)** -- permissions, common mistakes, and the glossary
-2. **[Special Cases](07-special-cases.md)** -- how Bhakti Kirtan Retreat works differently
-3. **[Troubleshooting](Troubleshooting.md)** -- bookmark this for when things go wrong
+1. **[Business Rules](BUSINESS.md)** -- permissions, safe zones, content domains
+2. **[Special Cases](SPECIAL-CASES.md)** -- how Bhakti Kirtan Retreat works differently
+3. **[Troubleshooting](TROUBLESHOOTING.md)** -- bookmark this for when things go wrong
 
 #### The Golden Rules
 
@@ -205,7 +203,7 @@ Upload Banner ──> Create App Event ──> Add Content ──> Create Email 
 Once your team lead gives you the go-ahead:
 
 1. **Log into Production** at `https://prod-strapi.jkyog.org/admin`
-2. Start with **low-risk tasks** (editing existing events, updating LMS lessons)
+2. Start with **low-risk tasks** (editing existing events, updating articles)
 3. Graduate to **creating new events** under supervision
 4. Eventually handle the **full flow independently** (Strapi + Webflow + Tickets)
 
@@ -230,7 +228,7 @@ AFTER DUPLICATING AN EVENT:
   5. Update eventUuid in Webflow Code Embed (line 25)
 
 SOMETHING BROKE?
-  -> Check Troubleshooting.md
+  -> Check TROUBLESHOOTING.md
   -> Screenshot the issue
   -> Contact your team lead
 ```
@@ -241,14 +239,13 @@ SOMETHING BROKE?
 
 | Document | What It Covers |
 |----------|---------------|
-| [Getting Started](01-getting-started.md) | Login, environments, first steps |
-| [Strapi Overview](02-strapi-overview.md) | Dashboard, sidebar, Collection Types |
-| [Creating Events](03-creating-events.md) | Full event creation workflow |
-| [Webflow Integration](04-webflow-integration.md) | Registration forms and eventUuid |
-| [Payment Tickets](05-payment-tickets.md) | Tickets and Promocodes |
-| [Editing LMS Lessons](06-editing-lms-lessons.md) | LMS lesson content |
-| [Special Cases](07-special-cases.md) | Bhakti Kirtan Retreat |
-| [Dos and Don'ts](08-dos-and-donts.md) | Permissions, mistakes, glossary |
-| [API & Backend](09-api-and-backend.md) | API endpoint, data model, backend |
-| [Architecture](Architecture.md) | System architecture and tech stack |
-| [Troubleshooting](Troubleshooting.md) | Issue resolution guide |
+| [Getting Started](GETTING-STARTED.md) | Login, environments, first steps |
+| [Strapi Overview](STRAPI-OVERVIEW.md) | Dashboard, sidebar, Collection Types |
+| [Creating Events](CREATING-EVENTS.md) | Full event creation workflow |
+| [Webflow Integration](WEBFLOW-INTEGRATION.md) | Registration forms and eventUuid |
+| [Payment Tickets](PAYMENT-TICKETS.md) | Tickets and Promocodes |
+| [Special Cases](SPECIAL-CASES.md) | Bhakti Kirtan Retreat |
+| [Business Rules](BUSINESS.md) | Permissions, safe zones, content domains |
+| [API & Backend](API-AND-BACKEND.md) | API endpoint, data model, backend |
+| [Architecture](ARCHITECTURE.md) | System architecture and tech stack |
+| [Troubleshooting](TROUBLESHOOTING.md) | Issue resolution guide |
